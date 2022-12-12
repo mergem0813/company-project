@@ -1,0 +1,275 @@
+@charset "utf-8";
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Noto Sans KR', sans-serif;
+    /* 브라우저마다 사용하는 폰트가 달라 웹폰트에서 폰트를 가져온다. */
+    font-size: 13px;
+    line-height: 20px;
+    color: rgb(49, 48, 48);
+    /* a태그 안에 쓰였던 것은 위 색상이 적용되지 않는다. */
+    /* a 태그는 a 태그 안에서만 값을 적용할 수 있다. */
+}
+
+ul, ol{
+    list-style: none;
+    /* ul, ol 목록 태그에 함께 매겨지는 항목 모양을 없애준다. */
+}
+
+a{
+    text-decoration: none;
+    /* 링크에 표시되는 밑줄을 없애준다. */ 
+}
+
+img{
+    vertical-align: top;
+    /* 수직 정렬을 위해 사용하며 오직 inline 또는 inline-block 요소에서만 사용 가능하다.*/
+    border: 0;
+    /* 브라우저에 따라 간혹 테두리가 생기는 경우가 있어 미리 border의 값을 0으로 설정한다.*/
+}
+
+.wrap{
+    width: 100%;
+    /* 브라우저를 줄이거나 늘려도 width가 없어 브라우저에 100% 표현된다.*/
+    /* 어차피 div의 width 기본값은 0이므로 굳이 명시할 필요는 없다.*/ 
+    /* 그러나 모바일 앱에 적용할 때는 위처럼 명시해야 한다.*/
+    min-width: 1240px;
+    /* 안전 사이즈보다 브라우저의 크기가 작아질 경우 .main1Img의 이미지가 
+       잘려서 표시가 되므로 전체 영역의 최소 너비값(min-width)을 안전 사이즈의
+       너비로 고정해야 한다. */
+    /* 전체 영역의 너비만큼 값을 주면 양쪽 끝에 딱 붙어있게 되므로 약 20px 
+        정도의 여유 정도는 주는 것이 보기에 좋다.*/
+}
+
+.header{
+    height: 80px;
+    /* headerIn의 높이값과 맞춰서 써준다. */
+}
+
+.headerIn{
+    width: 1200px;
+    /* 1200px를 width라고 가정하자. */
+    /* 보통 1200에서 1600까지 width를 쓴다. */ 
+    /* 포토샵을 사용하여 너비값을 확인할 수도 있다. */
+    margin-left: auto;
+    margin-right: auto;
+    /* .headerIn을 중앙에 고정시키려면 필요한 좌우 여백은 값을 알기 어렵다.*/
+    /* 이런 경우 auto를 주는데 가로 중앙에 배치하겠다는 뜻이다.*/
+    /* auto의 값을 주면 자연스럽게 좌우 여백이 균등하게 배분된다. */
+    display: flex;
+    /* .gnb와 .member의 가로배열이 필요하므로 상위 태그인 .headerIn에 flex 값을 준다. */
+    justify-content: space-between;
+    /* .gnb와 .member의 사이에 간격이 있고 양쪽 끝으로 떨어졌으니 space-between */
+    height: 80px;
+    /* 가로 배열로 인해 맞춰진 height에 적당한 값을 준다. */
+    align-items: center;
+    /* .headerIn 안의 자식 태그들이 높이값의 중앙에 정렬되어 있으니 center값을 준다. */
+
+}
+
+.gnb ul{
+    display: flex;
+    /* .gnb li는 가로 배열의 상태이므로 상위태그인 .gnb uls에게 flex를 준다.*/
+}
+
+.gnb li{
+    margin-right: 50px;
+    /* .gnb li 사이에는 여백이 조금씩 있으므로 잊지 말자.*/
+    /* 포토샵을 사용하여 여백값을 확인할 수도 있다. */
+}
+
+.gnb li a{
+    color: rgb(49, 48, 48);
+    font-size: 18px;
+}
+
+.gnb li a:hover{
+    color: lightpink;
+    /* 메뉴에 마우스를 가져가면 색이 변하므로 hover를 사용해야한다. */
+}
+
+.member ul{
+    display: flex;
+    /* .member li는 가로 배열의 상태이므로 상위태그인 .member ul에게 flex를 준다.*/
+}
+
+.member li{
+    margin-left: 15px;
+    /* .member li는 오른쪽 끝쪽에 딱 붙어있고 사이에 여백이 있다. */
+    /* 이런 경우에는 왼쪽으로 여백값을 주어야 한다. */
+}
+
+.member li a{
+    color: rgb(49, 48, 48);
+}
+
+.member li a:hover{
+    text-decoration: underline;
+    /* 마우스 커서를 대면 밑줄이 생긴다. */
+    /* 그러나 두께, 색 선과 글자와의 간격을 조절할 수 없는 것이 단점이다. */
+}
+
+
+.main1{
+    position: relative;
+    /* .main1Img의 상위 태그인 .main1에 relative를 준다.*/
+    overflow: hidden;
+    /* 브라우저의 너비보다 더 큰 이미지라 너비가 넘쳐 아래쪽에 스크롤이 생긴다. */
+    /* 이를 정리하기 위해서 overflow:hidden을 설정한다. */
+    height: 480px;
+    /* 이때 Img가 갑자기 사라지게 되는데 이는 .main1의 자식태그인 .main1Img가 
+       absolute처리가 되어 독립하면서 세로 높이 값이 0으로 처리되었기 때문이다. */
+    /* 그러므로 .main1에서 사용할 만큼의 높이값을 강제로 재입력해야 한다. */
+      margin-bottom: 30px;
+}
+
+.main1Img{
+    position: absolute;
+    /* .main1Img의 이미지 너비값이 안전 사이즈보다 넓다. */
+    /* 강제로 가운데 배치하기 위해서 position: absolute;를 사용한다. */
+    top: 0;
+    left: 50%;
+    /* 이미지의 왼쪽 절반만 표시되며 화면 왼쪽에 절반의 여백이 남는다. */
+    margin-left: -800px;
+    /* 여백없이 화면을 100% 표시하기 위해 왼쪽으로 이미지를 밀어야 한다.*/
+    /* 음수 마진을 주면 이미지가 반대로 가게된다. */
+    /* 즉, margin-left지만 음수값이라면 그 값만큼 오른쪽이 밀려 이미지가 왼쪽으로 간다.*/
+}
+
+.main2{
+    width: 1200px;
+    /* 좌우 margin에 auto를 주려면 width값이 있어야 한다. */
+    margin: 0 auto;
+    /* 중앙 정렬을 위해 좌우 margin에 auto를 준다. */
+    display: flex;
+    /* .main2 p들은 가로 배열이기 대문에 상위 태그인 .main2에 flex를 준다. */
+    justify-content: space-between;
+    /* .main2 li들이 간격을 두고 양쪽 끝으로 떨여져 있으므로 space-between */
+    margin-bottom: 40px;
+}
+
+.main3{
+    width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    /* .more에 absolute값을 주기 위해 상위 태그인 .main3에 relative를 준다. */
+    margin-bottom: 50px;
+    
+}
+
+.main3 h2{
+    font-size: 24px;
+    line-height: 24px;
+    /* 처음 css 브라우저 초기화에서 body 태그에 적용한 기본 줄높이가 20px이다.*/
+    /* 폰트의 기본 높이값 = 줄높이인 셈. */
+    /* 그러나 지금 폰트 사이즈가 더 커지면서 글자가 위, 아래 영역과 겹치므로
+       줄높이도 같이 수정해줘야 한다. */
+    margin-bottom: 20px;
+}
+
+.main3 h2 span{
+    font-weight: normal;
+}
+
+.main3 ul{
+    display: flex;
+        /* .main3 li들이 모두 가로 배열이므로 상위태그인 .main3 ul에 flex를 준다. */
+    justify-content: space-between;
+    /* .main3 li들이 사이에 간격을 두고 양쪽 끝으로 떨여져 있으므로 space-between */
+}
+
+.main3 ul li{
+    width: 285px;
+    /* 전체 너비는 1200px, li들 사이에 들어갈 여백을 15px 정도라고 가정을 했을 때*/
+    /* li 하나의 너비를 대략 285px 라고 가정해본다. */
+    text-align: center;
+    /* li 안 태그들의 가운데 정렬이라고 한번에 명시하면 효율적이다. */
+}
+
+.main3 li .itemImg{
+    margin-bottom: 15px;
+    /* itemImg 밑으로 간격이 있으니 아래쪽 여백 값을 줘야한다.*/
+}
+
+.main3 li .itemImg img{
+    width: 100%;
+    /* %는 부모 요소의 높이와 넓이에 비례해서 정해진다. */
+    /* 100%이면 이미지를 부모 요소의 전체 크기를 따르겠다는 뜻이다. */
+    /* 부모 요소는 a태그지만 지정된 width가 없으므로 더 상위 태그인 
+       li의 width를 따라 너비가 조절된다.*/
+    border: 1px solid rgb(161, 159, 159);
+}
+
+.main3 li .itemBrand{
+    color: #444;
+    margin-bottom: 5px;
+}
+
+.main3 li .itemName{
+    color: #444;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.main3 li .itemPrice{
+    color: #444;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.main3 li .itemPrice span{
+    display: inline-block;
+    /* span 태그 자체가 inline 요소이므로 padding과 margin의 
+       위, 아래 크기를 정할 수 없다. */
+    /* 그러므로 display를 실행, inline-block 값을 주어 요소 자체는 
+       inline처럼 동작하지만, 내부에서는 block 요소처럼 동작하게 해야한다.*/
+       vertical-align: top;
+    /* 부모 요소를 기준으로 정렬이 된다.*/
+    margin-top: 5px;
+}
+
+.more{
+    position: absolute;
+    /* .more의 위치 변경을 위해 position: absolute;를 준다. */
+    top: 0;
+    right: 0;
+}
+
+.more a{
+    color: #444;
+}
+
+.more a span{
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 4px;
+    margin-left: 4px;
+}
+
+.main4{
+    width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+}
+
+.main4 ul{
+    display: flex;
+    /* .main li들이 가로 배열이므로 상위태그인 .main4 ul에 flex를 준다. */
+    justify-content: space-between;
+}
+
+.main4 li{
+    position: relative;
+}
+
+.main4 li .m4Text{
+    position: absolute;
+    left: 20px;
+    top: 60px;
+    color: #444;
+    font-size: 15px;
+}

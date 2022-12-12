@@ -1,0 +1,307 @@
+@charset "utf-8";
+
+/* 브라우저 리셋 */
+/* 밑 5개는 반드시 와야한다. */
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+   font-family: 'Noto Sans KR', sans-serif;
+   font-size: 13PX;
+   line-height: 20px;
+   color: rgb(41, 40, 40);
+}
+
+ul, ol{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+img{
+    vertical-align: top;
+    border: 0; /* 브라우저에 따라서 가끔 테두리가 생기는 브라우저들이 있으므로 미리 border의 값을 0으로 설정한다. */
+}
+
+
+
+.wrap{
+    min-width: 1240px; /* 양쪽 끝에 너무 딱 달라붙으니까 조금 여유를 두는 게 좋음 */
+    width: 100%;  /* 어차피 div는 width의 기본값이 0이기 때문에 안 써도 되지만 모바일에 적용할 때는 써야한다. */
+}
+
+.header{
+    height: 80px;
+}
+
+.header_in{
+    width: 1200px; /*보통 1200에서 1600까지 width 값으로 많이 쓴다.*/ 
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    align-items: center; /* 높이값에서 중앙에 맞춰 위치가 center로 설정된다. */
+}
+
+.gnb ul{
+    display: flex;
+}
+
+.gnb li{
+    margin-right: 50px;
+}
+
+/* a태그의 글자색은 반드시 a태그에서 변경해야함. */
+.gnb li a{
+    color: rgb(41, 40, 40);
+    font-size: 18px;    
+}
+
+.gnb li a:hover{
+    color: hotpink;
+}
+
+.member ul{
+    display: flex;
+}
+
+.member li{
+    margin-left: 15px;
+}
+
+.member li a{
+    color: rgb(41, 40, 40);
+}
+
+.member li a:hover{
+    text-decoration: underline; /* 두께, 색 선과 글자와의 간격을 조절할 수 없는 것이 단점이다. */
+}
+
+
+.main1{
+    position: relative;
+    height: 480px;
+
+    /* .main1의 공간 밖의 내용을 보이지 않게 설정함. */
+    /* 적용하니 안전 사이즈보다 화면이 더 크게 브라우저를 늘려도 더는 밑에 스크롤이 생기지 않는다. */
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+
+.main1Img{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -800px;
+
+}
+
+/*  ※ .main1Img의 이미지 너비값이 안전사이즈보다 넓음. 
+    ※ 그래서 강제로 가운데 배치하기 위해서 position: absolute를 사용함. 
+    ※ .main1의 하나뿐인 자식인 .mainImg가 absolute를 처리가 되면 세로 높이 값이 0으로 처리되므로 
+       .main1에서 사용할 만큼의 높이값을 강제로 입력함. 
+    ※ 브라우저의 너비보다 더 큰 이미지 때문에 아래쪽에 스크롤이 생기므로
+        이를 정리하기 위해서 .main1에 overflow:hidden;을 설정함.
+    ※  안전사이즈보다 브라우저의 크기가 작아질 경우
+         .main1Img의 이미지가 잘려서 표시가 되므로
+        전체 영역의 최소 너비값(min-width)을 안전 사이즈의 너비로 고정함.
+*/
+
+.main2{
+   display: flex;
+   justify-content: space-between;
+   width: 1200px;
+   margin-left: auto;
+   margin-right: auto;
+   margin-bottom: 40px;
+}
+
+.main3{
+    width: 1200px;
+    margin-left: auto; /* 단축 속성으로 쓰려면 margin: 0 auto; */
+    margin-right: auto; /* 가운데로 맞춰주기 위해서 auto 값을 준다. */
+}
+
+.main3 h2{
+    /*
+        css를 시작할때 body 태그에 적용한 기본 줄높이가 20px임
+        폰트의 기본 높이값 = 줄높이
+        폰트 사이즈가 더 커지면 글자가 위, 아래의 영역과 겹쳐지므로
+        줄높이도 같이 수정해야 한다.
+     */
+    font-size: 24px; 
+    line-height: 24px; 
+    margin-bottom: 20px;
+}
+
+.main3{
+    position: relative;
+    margin-bottom: 50px;
+}
+
+.main3 h2 span{
+    font-weight: normal;
+}
+
+.main3 ul{
+    display: flex;
+    justify-content: space-between;
+}
+
+.main3 ul li{
+    width: 285px;
+    text-align: center;
+}
+
+.main3 li .itemImg{
+    margin-bottom: 15px;
+}
+
+
+.main3 li .itemImg img{
+    width: 100%;
+    border: 1px solid darkgrey;
+}
+
+.main3 li .itembrand{
+    color: rgb(58, 58, 58);
+    margin-bottom: 5px;
+}
+
+.main3 li .itemName{
+    color: rgb(58, 58, 58);
+    margin-bottom: 20px;
+    font-weight: bold; /*  font-weight: 700; */
+}
+
+.main3 li .itemPrice span {
+    display: inline-block;
+    margin-top: 5px;
+    vertical-align: top;
+
+    /* 
+
+    */
+}
+
+.main3 .more{
+    /* color: rgb(58, 58, 58);  .more은 a태그 안에 있기 때문에 컬러가 적용되지 않는다. */
+    /* a태그는 a태 안에서만 적용시킬 수 있다. */
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.main3 .more a{
+    color: rgb(58, 58, 58);
+}
+
+.main3 .more a span{
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 5px;
+    margin-left: 3px;
+}
+
+.main4{
+    width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 60px;
+}
+
+.main4 ul{
+    display: flex;
+    justify-content: space-between;
+}
+
+.main4 li{
+    width: 380px;
+    position: relative;
+}
+
+
+.main4 li .m4Text{
+    position: absolute;
+    top: 60px;
+    left: 20px;
+    color: rgb(58, 58, 58);
+    font-size: 16px;
+}
+
+.footer{
+    border-top: 1px solid rgb(160, 158, 158);
+    margin: 0 auto;
+    padding-top: 20px;
+    padding-bottom: 50px;
+}
+
+.footerIn{
+    width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer .fLeft{
+    font-weight: 500;
+}
+
+.fMenu{
+    margin-bottom: 30px;
+}
+
+.fMenu ul{
+    display: flex;
+}
+
+.fMenu li{
+
+    margin-right: 15px;
+}
+
+.fMenu li a{
+    color: rgb(58, 58, 58);
+}
+
+.fMenu .point a{
+    color: hotpink;
+}
+
+
+.fInfo .mar{
+    margin-right: 15px;
+}
+
+.fInfo a{
+    color: rgb(117, 117, 117);
+}
+
+.fInfo .bar{
+    font-size: 9px;
+    font-weight: grey;
+}
+
+.kg1{
+    margin-bottom: 10px;
+}
+
+.kg2{
+    margin-bottom: 18px;
+}
+
+.kg3 a{
+    color: rgb(146, 146, 146);
+}
+
+.kg3 span{
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 4px;
+}
